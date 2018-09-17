@@ -2,20 +2,11 @@
 
 class ContentExtension extends Extension
 {
-
-    protected $namespace = '';
     protected $metaClasses = [];
 
     public function __construct()
     {
         parent::__construct();
-        // Get the namespace used as a prefix for all metaclasses
-        $namespace = $this->config()->get('namespace');
-        if ((!empty($namespace) && (substr($namespace, -1) != '\\'))) {
-            $this->namespace = $namespace . "\\";
-        } else {
-            $this->namespace = $namespace;
-        }
         // Get the meta tag default classes from the config
         $this->metaClasses = $this->config()->get('metaClasses');
     }
@@ -25,16 +16,15 @@ class ContentExtension extends Extension
         $metaTags = array();
 
         foreach ($this->metaClasses as $tagClass) {
-            $className = $this->namespace . $tagClass;
 
-            if (!class_exists($className)) {
+            if (!class_exists($tagClass)) {
                 continue;
             }
 
             /**
              * @var SwiftypeMetaTag $r
              */
-            $r = new $className();
+            $r = new $tagClass();
             $tagsString = $r->getMetaTagsString($this->owner->data());
 
             if ($tagsString === null) {
