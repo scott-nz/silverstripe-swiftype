@@ -2,7 +2,6 @@
 
 class ContentExtension extends Extension
 {
-    use Configurable;
 
     protected $namespace = '';
     protected $metaClasses = [];
