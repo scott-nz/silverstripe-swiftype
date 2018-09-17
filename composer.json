@@ -1,7 +1,7 @@
 {
   "name": "ichaber/silverstripe-swiftype",
   "description": "Use Swiftype search with Silverstripe",
-  "type": "silverstripe-vendormodule",
+  "type": "silverstripe-module",
   "homepage": "http://github.com/ichaber/silverstripe-swiftype",
   "keywords": ["silverstripe", "swiftype", "search"],
   "license": "BSD-3-Clause",
