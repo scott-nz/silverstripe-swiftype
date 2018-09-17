@@ -1,12 +1,12 @@
 ---
 Name: swiftype-extension
 ---
-SilverStripe\SiteConfig\SiteConfig:
+SiteConfig:
   extensions:
-    - Ichaber\SSSwiftype\Extensions\SwiftypeSiteConfig
-SilverStripe\CMS\Model\SiteTree:
+    - SwiftypeSiteConfig
+SiteTree:
   extensions:
-    - Ichaber\SSSwiftype\Extensions\SwiftypeSiteTree
-SilverStripe\CMS\Controllers\ContentController:
+    - SwiftypeSiteTree
+ContentController:
   extensions:
-    - Ichaber\SSSwiftype\Extensions\ContentExtension
+    - ContentExtension

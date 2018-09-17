@@ -1,7 +1,5 @@
 <?php
 
-namespace Ichaber\SSSwiftype\MetaTags;
-
 class SwiftypeMetaTag_UpdatedAt extends SwiftypeMetaTag
 {
 

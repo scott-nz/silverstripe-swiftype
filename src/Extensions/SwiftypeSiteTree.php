@@ -1,13 +1,4 @@
 <?php
-namespace Ichaber\SSSwiftype\Extensions;
-
-use function array_key_exists;
-use Exception;
-use SilverStripe\CMS\Model\SiteTreeExtension;
-use SilverStripe\Control\Director;
-use SilverStripe\SiteConfig\SiteConfig;
-use SilverStripe\Core\Injector\Injector;
-use Psr\Log\LoggerInterface;
 
 class SwiftypeSiteTree extends SiteTreeExtension {
 

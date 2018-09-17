@@ -1,16 +1,5 @@
 <?php
 
-namespace Ichaber\SSSwiftype\Extensions;
-
-use SilverStripe\AssetAdmin\Forms\UploadField;
-use SilverStripe\Assets\Image;
-use SilverStripe\Forms\CheckboxField;
-use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\TextareaField;
-use SilverStripe\Forms\LiteralField;
-use SilverStripe\Forms\TextField;
-use SilverStripe\ORM\DataExtension;
-
 /**
  * Some default things to set up
  *

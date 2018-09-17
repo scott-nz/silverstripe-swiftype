@@ -1,10 +1,4 @@
 <?php
-namespace Ichaber\SSSwiftype\Extensions;
-
-
-use SilverStripe\Core\Extension;
-use SilverStripe\Core\Config\Config;
-use SilverStripe\Core\Config\Configurable;
 
 class ContentExtension extends Extension
 {

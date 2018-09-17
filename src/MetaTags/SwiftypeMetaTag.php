@@ -1,10 +1,5 @@
 <?php
 
-namespace Ichaber\SSSwiftype\MetaTags;
-
-use SilverStripe\ORM\DataObject;
-use SilverStripe\ORM\FieldType\DBDatetime;
-
 class SwiftypeMetaTag
 {
     /**
