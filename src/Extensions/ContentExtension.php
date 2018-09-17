@@ -2,14 +2,14 @@
 
 class ContentExtension extends Extension
 {
-    protected $metaClasses = [];
-
-    public function __construct()
-    {
-        parent::__construct();
-        // Get the meta tag default classes from the config
-        $this->metaClasses = $this->config()->get('metaClasses');
-    }
+    protected $metaClasses = [
+        'SwiftypeMetaTag_Body',
+        'SwiftypeMetaTag_PublishedAt',
+        'SwiftypeMetaTag_Tags',
+        'SwiftypeMetaTag_Title',
+        'SwiftypeMetaTag_UpdatedAt',
+        'SwiftypeMetaTag_URL'
+    ];
 
     public function getSwiftypeMetaTags()
     {

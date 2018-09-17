@@ -1,7 +1,0 @@
-ContentExtension:
-  metaClasses:
-    - 'SwiftypeMetaTag_Body'
-    - 'SwiftypeMetaTag_PublishedAt'
-    - 'SwiftypeMetaTag_Title'
-    - 'SwiftypeMetaTag_UpdatedAt'
-    - 'SwiftypeMetaTag_URL'
