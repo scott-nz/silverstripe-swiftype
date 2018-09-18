@@ -34,40 +34,25 @@ class SwiftypeSiteTree extends SiteTreeExtension {
             return true;
         }
 
-        $logger = $this->getLogger();
         $config = SiteConfig::current_site_config();
 
         $engineSlug = $config->SwiftypeEngineSlug;
         $domainID = $config->SwiftypeDomainID;
         $apiKey = $config->SwiftypeAPIKey;
-
         if (!$engineSlug) {
-            $trace = debug_backtrace();
-            $logger->warning(
-                'Swiftype Engine Slug value has not been set. Settings > Swiftype Search > Swiftype Engine Slug',
-                array_shift($trace) //Add context (for RaygunHandler) by using the last item on the stack trace.
-            );
+
+            user_error("Swiftype Engine Slug value has not been set. Settings > Swiftype Search > Swiftype Engine Slug", E_USER_WARNING);
 
             return false;
         }
 
         if (!$domainID) {
-            $trace = debug_backtrace();
-            $logger->warning(
-                'Swiftype Domain ID has not been set. Settings > Swiftype Search > Swiftype Domain ID',
-                array_shift($trace) //Add context (for RaygunHandler) by using the last item on the stack trace.
-            );
-
+            user_error("Swiftype Domain ID has not been set. Settings > Swiftype Search > Swiftype Domain ID", E_USER_WARNING);
             return false;
         }
 
         if (!$apiKey) {
-            $trace = debug_backtrace();
-            $logger->warning(
-                'Swiftype API Key has not been set. Settings > Swiftype Search > Swiftype Production API Key',
-                array_shift($trace) //Add context (for RaygunHandler) by using the last item on the stack trace.
-            );
-
+            user_error("Swiftype API Key has not been set. Settings > Swiftype Search > Swiftype Production API Key", E_USER_WARNING);
             return false;
         }
 
@@ -104,33 +89,16 @@ class SwiftypeSiteTree extends SiteTreeExtension {
         curl_close($ch);
 
         if (!$output) {
-            $trace = debug_backtrace();
-            $logger->warning(
-                'We got no response from Swiftype for reindexing page: ' . $updateUrl,
-                array_shift($trace) //Add context (for RaygunHandler) by using the last item on the stack trace.
-            );
-
+            user_error("We got no response from Swiftype for reindexing page: " . $updateUrl, E_USER_WARNING);
             return false;
         }
         $jsonOutput = json_decode($output, true);
         if (!empty($jsonOutput) && array_key_exists('error', $jsonOutput)) {
             $message = $jsonOutput['error'];
-            $context = ['exception' => new Exception($message)];
-
-            //Add context (for RaygunHandler) by using the last item on the stack trace.
-            $logger->warning($message, $context);
+            user_error($message, E_USER_WARNING);
             return false;
         }
 
         return false;
-    }
-
-    /**
-     * @return LoggerInterface
-     * @throws \Psr\Container\NotFoundExceptionInterface
-     */
-    protected function getLogger()
-    {
-        return Injector::inst()->get(LoggerInterface::class);
     }
 }
