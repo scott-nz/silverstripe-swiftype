@@ -14,7 +14,8 @@
   },
   "require": {
     "silverstripe/cms": "^3.5",
-    "silverstripe/framework": "^3.5"
+    "silverstripe/framework": "^3.5",
+    "wilr/silverstripe-googlesitemaps": "^1.6"
   },
   "extra": {
     "installer-name": "silverstripe-swiftype",
