@@ -4,6 +4,7 @@ class ContentExtension extends Extension
 {
     protected $metaClasses = [
         'SwiftypeMetaTag_Body',
+        'SwiftypeMetaTag_FileExtension',
         'SwiftypeMetaTag_PublishedAt',
         'SwiftypeMetaTag_Tags',
         'SwiftypeMetaTag_Title',
